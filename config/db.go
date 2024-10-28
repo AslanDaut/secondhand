@@ -4,17 +4,21 @@ import (
 	"fmt"
 	"log"
 	"os"
-
 	"secondhand/models"
 
+	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
 var DB *gorm.DB
 
-func AutoMigrate(db *gorm.DB) {
-	db.AutoMigrate(&models.Product{}, &models.Review{}, &models.Seller{}, &models.Status{}, &models.User{})
+func init() {
+	// Загружаем .env файл
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Ошибка загрузки файла .env")
+	}
 }
 
 func ConnectDatabase() {
