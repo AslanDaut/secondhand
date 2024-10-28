@@ -2,8 +2,8 @@ package controllers
 
 import (
 	"net/http"
-	"your-project/config"
-	"your-project/models"
+	"secondhand/config"
+	"secondhand/models"
 
 	"github.com/gin-gonic/gin"
 )

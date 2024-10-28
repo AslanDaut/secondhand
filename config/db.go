@@ -5,11 +5,17 @@ import (
 	"log"
 	"os"
 
+	"secondhand/models"
+
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
 var DB *gorm.DB
+
+func AutoMigrate(db *gorm.DB) {
+	db.AutoMigrate(&models.Product{}, &models.Review{}, &models.Seller{}, &models.Status{}, &models.User{})
+}
 
 func ConnectDatabase() {
 	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable",
