@@ -9,8 +9,8 @@ import (
 func SetupRoutes(router *gin.Engine) {
 	api := router.Group("/api")
 	{
+		api.POST("/register", controllers.RegisterSeller)
+		api.POST("/login", controllers.LoginSeller)
 		api.GET("/sellers", controllers.GetSellers)
-		api.GET("/products", controllers.GetSellers)
-		// Добавьте дополнительные маршруты по необходимости
 	}
 }

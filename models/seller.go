@@ -11,6 +11,7 @@ type Seller struct {
 	InstagramLink string `json:"instagram_link"`
 	TgChannelLink string `json:"tg_channel_link"`
 	TgLink        string `json:"tg_link"`
+	Password      string `json:"password"` // Добавлено поле для пароля
 	StatusID      uint   `json:"status_id"`
 	Status        Status `json:"status" gorm:"foreignKey:StatusID"`
 }
